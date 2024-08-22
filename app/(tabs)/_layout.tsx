@@ -1,49 +1,87 @@
+import { colors, fontSize } from "@/constants/tokens";
+import {
+  FontAwesome,
+  FontAwesome6,
+  Ionicons,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
-import React, { ComponentProps } from "react";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { IconProps } from "@expo/vector-icons/build/createIconSet";
+import { StyleSheet } from "react-native";
 
-export default function TabLayout() {
-  function TabBarIcon({
-    style,
-    ...rest
-  }: IconProps<ComponentProps<typeof Ionicons>["name"]>) {
-    return (
-      <Ionicons size={28} style={[{ marginBottom: -3 }, style]} {...rest} />
-    );
-  }
-
+const TabsNavigation = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#FF9900",
+        tabBarActiveTintColor: colors.primary,
+        tabBarLabelStyle: {
+          fontSize: fontSize.xs,
+          fontWeight: 500,
+        },
         headerShown: false,
+        tabBarStyle: {
+          position: "absolute",
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          borderTopWidth: 0,
+          paddingTop: 8,
+        },
+        tabBarBackground: () => (
+          <BlurView
+            intensity={95}
+            style={{
+              ...StyleSheet.absoluteFillObject,
+              backgroundColor: "#FFF",
+              overflow: "hidden",
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
+            }}
+          />
+        ),
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="favorites"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "home" : "home-outline"}
+          title: "Favorites",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="musical-notes-sharp" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="playlists"
+        options={{
+          title: "PlayLists",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="heart" size={20} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(songs)"
+        options={{
+          title: "Songs",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="playlist-play"
+              size={24}
               color={color}
             />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="artists"
         options={{
-          title: "Explore",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
-              color={color}
-            />
+          title: "Artists",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome6 name="users-line" size={20} color={color} />
           ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default TabsNavigation;
