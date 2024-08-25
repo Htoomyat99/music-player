@@ -21,8 +21,6 @@ const SongScreen = () => {
     return library.filter(trackTitleFilter(search));
   }, [search]);
 
-  console.log(filterTracks, "filtertracks");
-
   return (
     <View style={defaultStyles.container}>
       <ScrollView

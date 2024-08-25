@@ -1,40 +1,24 @@
-// import { useFonts } from "expo-font";
-// import { Stack } from "expo-router";
-// import * as SplashScreen from "expo-splash-screen";
-// import { useEffect } from "react";
-// import "react-native-reanimated";
-
+import { useSetUpTrackPlayer } from "@/hooks/useSetUpTrackPlayer";
 import { Stack } from "expo-router";
 import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SplashScreen } from "expo-router";
+import { useCallback } from "react";
+import { useLogTrackPlayerState } from "@/hooks/useLogTrackPlayerState";
 
-// // Prevent the splash screen from auto-hiding before asset loading is complete.
-// SplashScreen.preventAutoHideAsync();
-
-// export default function RootLayout() {
-//   const [loaded] = useFonts({
-//     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-//   });
-
-//   useEffect(() => {
-//     if (loaded) {
-//       SplashScreen.hideAsync();
-//     }
-//   }, [loaded]);
-
-//   if (!loaded) {
-//     return null;
-//   }
-
-//   return (
-//     <Stack>
-//       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-//       <Stack.Screen name="+not-found" />
-//     </Stack>
-//   );
-// }
+SplashScreen.preventAutoHideAsync();
 
 const App = () => {
+  const handleTrackPlayer = useCallback(() => {
+    SplashScreen.hideAsync();
+  }, []);
+
+  useLogTrackPlayerState();
+
+  useSetUpTrackPlayer({
+    onLoad: handleTrackPlayer,
+  });
+
   return (
     <SafeAreaProvider>
       <RootNavigation />
