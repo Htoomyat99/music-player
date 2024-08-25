@@ -1,21 +1,14 @@
-import { unknownTrackImageUri } from "@/constants/images";
-import { defaultStyles } from "@/styles";
-import {
-  View,
-  Text,
-  Pressable,
-  StyleSheet,
-  ViewStyle,
-  ViewProps,
-} from "react-native";
-import FastImage from "react-native-fast-image";
-import { Track, useActiveTrack } from "react-native-track-player";
 import {
   PlayPauseButton,
   SkipToNextButton,
   SkipToPrevButton,
 } from "@/components/PlayerControls";
+import { unknownTrackImageUri } from "@/constants/images";
 import { useLastActiveTrack } from "@/hooks/useLastActiveTrack";
+import { defaultStyles } from "@/styles";
+import { Pressable, StyleSheet, Text, View, ViewProps } from "react-native";
+import FastImage from "react-native-fast-image";
+import { useActiveTrack } from "react-native-track-player";
 
 export const FloatingPlayer = ({ style }: ViewProps) => {
   const activeTrack = useActiveTrack();
