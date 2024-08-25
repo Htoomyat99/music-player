@@ -1,9 +1,10 @@
-import library from "@/assets/data/library.json";
-import React, { useCallback } from "react";
-import { FlatList, FlatListProps, View } from "react-native";
-import { TrackListItem } from "./TrackListItem";
+import { unknownTrackImageUri } from "@/constants/images";
 import { utilsStyles } from "@/styles";
-import { Track } from "react-native-track-player";
+import React from "react";
+import { FlatList, FlatListProps, Text, View } from "react-native";
+import FastImage from "react-native-fast-image";
+import TrackPlayer, { Track } from "react-native-track-player";
+import { TrackListItem } from "./TrackListItem";
 
 export interface TrackListProps extends Partial<FlatListProps<Track>> {
   tracks: Track[];
@@ -15,9 +16,26 @@ const ItemDivider = () => (
   />
 );
 
+const ListEmptyComponent = () => {
+  return (
+    <View>
+      <Text style={utilsStyles.emptyContentText}>No Sound Found</Text>
+
+      <FastImage
+        source={{
+          uri: unknownTrackImageUri,
+          priority: FastImage.priority.normal,
+        }}
+        style={utilsStyles.emptyContentImage}
+      />
+    </View>
+  );
+};
+
 export const TrackList = ({ tracks, ...flatListProps }: TrackListProps) => {
-  const handleTrackSelect = (track: Track) => {
-    console.log(track);
+  const handleTrackSelect = async (track: Track) => {
+    await TrackPlayer.load(track);
+    await TrackPlayer.play();
   };
 
   return (
@@ -29,6 +47,7 @@ export const TrackList = ({ tracks, ...flatListProps }: TrackListProps) => {
       )}
       ItemSeparatorComponent={ItemDivider}
       ListFooterComponent={ItemDivider}
+      ListEmptyComponent={ListEmptyComponent}
       {...flatListProps}
     />
   );

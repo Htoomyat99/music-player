@@ -17,7 +17,6 @@ export const TrackListItem = ({
 }: TrackListItemProps) => {
   const isActiveTrack = useActiveTrack()?.url === track.url;
 
-  console.log;
   return (
     <TouchableHighlight onPress={() => handleTrackSelect(track)}>
       <View style={styles.trackItemContainer}>
@@ -51,7 +50,6 @@ export const TrackListItem = ({
                 numberOfLines={1}
                 style={{
                   ...styles.trackArtistText,
-                  color: isActiveTrack ? colors.primary : colors.textMuted,
                 }}
               >
                 {track.artist}
