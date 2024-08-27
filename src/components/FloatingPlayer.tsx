@@ -9,6 +9,7 @@ import { defaultStyles } from "@/styles";
 import { Pressable, StyleSheet, Text, View, ViewProps } from "react-native";
 import FastImage from "react-native-fast-image";
 import { useActiveTrack } from "react-native-track-player";
+import { MovingText } from "./MovingText";
 
 export const FloatingPlayer = ({ style }: ViewProps) => {
   const activeTrack = useActiveTrack();
@@ -31,11 +32,15 @@ export const FloatingPlayer = ({ style }: ViewProps) => {
       </View>
 
       <View style={styles.trackTitleContainer}>
-        <Text style={styles.trackTitle}>{displayTrack.title}</Text>
+        <MovingText
+          text={displayTrack.title ?? ""}
+          style={styles.trackTitle}
+          animationThreshold={25}
+        />
       </View>
 
       <View style={styles.trackControlContainer}>
-        <SkipToPrevButton iconSize={22} />
+        {/* <SkipToPrevButton iconSize={22} /> */}
         <PlayPauseButton iconSize={24} />
         <SkipToNextButton iconSize={22} />
       </View>
