@@ -10,8 +10,10 @@ import { Pressable, StyleSheet, Text, View, ViewProps } from "react-native";
 import FastImage from "react-native-fast-image";
 import { useActiveTrack } from "react-native-track-player";
 import { MovingText } from "./MovingText";
+import { useRouter } from "expo-router";
 
 export const FloatingPlayer = ({ style }: ViewProps) => {
+  const router = useRouter();
   const activeTrack = useActiveTrack();
   const lastActiveTrack = useLastActiveTrack();
 
@@ -19,8 +21,12 @@ export const FloatingPlayer = ({ style }: ViewProps) => {
 
   if (!displayTrack) return null;
 
+  const handlePress = () => {
+    router.navigate("/player");
+  };
+
   return (
-    <Pressable style={[styles.container, style]}>
+    <Pressable style={[styles.container, style]} onPress={handlePress}>
       <View>
         <FastImage
           source={{
