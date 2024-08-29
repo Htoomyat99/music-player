@@ -11,6 +11,6 @@ export const StackScreenWithSearchBar: NativeStackNavigationOptions = {
   },
   headerTintColor: colors.text,
   headerTransparent: true,
-  headerBlurEffect: "prominent",
+  headerBlurEffect: "dark",
   headerShadowVisible: false,
 };
