@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import Animated, {
+  Easing,
   StyleProps,
+  cancelAnimation,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
   withRepeat,
   withTiming,
-  Easing,
-  cancelAnimation,
 } from "react-native-reanimated";
 
 interface MovingTextProps {

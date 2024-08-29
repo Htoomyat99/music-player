@@ -1,10 +1,10 @@
+import library from "@/assets/data/library.json";
 import { TrackList } from "@/components/TrackList";
 import { screenPadding } from "@/constants/tokens";
-import { defaultStyles } from "@/styles";
-import { ScrollView, Text, View } from "react-native";
-import library from "@/assets/data/library.json";
-import { useMemo } from "react";
 import { useNavigationSearch } from "@/hooks/useNavigationSearch";
+import { defaultStyles } from "@/styles";
+import { useMemo } from "react";
+import { ScrollView, View } from "react-native";
 
 const FavoriteScreen = () => {
   const search = useNavigationSearch({
@@ -12,6 +12,8 @@ const FavoriteScreen = () => {
       placeholder: "Find in songs",
     },
   });
+
+  console.log("search >>>", search);
 
   const favoriteTracks = useMemo(() => {
     return library.filter((track) => track.rating === 1);

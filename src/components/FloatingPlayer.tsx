@@ -1,16 +1,12 @@
-import {
-  PlayPauseButton,
-  SkipToNextButton,
-  SkipToPrevButton,
-} from "@/components/PlayerControls";
+import { PlayPauseButton, SkipToNextButton } from "@/components/PlayerControls";
 import { unknownTrackImageUri } from "@/constants/images";
 import { useLastActiveTrack } from "@/hooks/useLastActiveTrack";
 import { defaultStyles } from "@/styles";
-import { Pressable, StyleSheet, Text, View, ViewProps } from "react-native";
+import { useRouter } from "expo-router";
+import { Pressable, StyleSheet, View, ViewProps } from "react-native";
 import FastImage from "react-native-fast-image";
 import { useActiveTrack } from "react-native-track-player";
 import { MovingText } from "./MovingText";
-import { useRouter } from "expo-router";
 
 export const FloatingPlayer = ({ style }: ViewProps) => {
   const router = useRouter();
@@ -46,7 +42,6 @@ export const FloatingPlayer = ({ style }: ViewProps) => {
       </View>
 
       <View style={styles.trackControlContainer}>
-        {/* <SkipToPrevButton iconSize={22} /> */}
         <PlayPauseButton iconSize={24} />
         <SkipToNextButton iconSize={22} />
       </View>

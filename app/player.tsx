@@ -1,19 +1,19 @@
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import React from "react";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { defaultStyles, utilsStyles } from "@/styles";
-import { colors, fontSize, screenPadding } from "@/constants/tokens";
-import { useActiveTrack } from "react-native-track-player";
-import FastImage from "react-native-fast-image";
-import { unknownTrackImageUri } from "@/constants/images";
 import { MovingText } from "@/components/MovingText";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { PlayerControls } from "@/components/PlayerControls";
 import PlayerProgressBar from "@/components/PlayerProgressBar";
-import PlayerVolumeBar from "@/components/PlayerVolumeBar";
 import PlayerRepeatToggle from "@/components/PlayerRepeatToggle";
+import PlayerVolumeBar from "@/components/PlayerVolumeBar";
+import { unknownTrackImageUri } from "@/constants/images";
+import { colors, fontSize, screenPadding } from "@/constants/tokens";
 import { usePlayerBackground } from "@/hooks/usePlayerBackground";
+import { defaultStyles, utilsStyles } from "@/styles";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import FastImage from "react-native-fast-image";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useActiveTrack } from "react-native-track-player";
 
 const PlayerScreen = () => {
   const { top, bottom } = useSafeAreaInsets();

@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet, ViewProps } from "react-native";
-import React from "react";
-import { useSharedValue } from "react-native-reanimated";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { colors } from "@/constants/tokens";
-import { utilsStyles } from "@/styles";
-import { Slider } from "react-native-awesome-slider";
 import { useTrackplayerVolume } from "@/hooks/useTrackPlayerVolume";
+import { utilsStyles } from "@/styles";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import React from "react";
+import { View, ViewProps } from "react-native";
+import { Slider } from "react-native-awesome-slider";
+import { useSharedValue } from "react-native-reanimated";
 
 const PlayerVolumeBar = ({ style }: ViewProps) => {
   const { volume, updateVolume } = useTrackplayerVolume();
@@ -52,5 +52,3 @@ const PlayerVolumeBar = ({ style }: ViewProps) => {
 };
 
 export default PlayerVolumeBar;
-
-const styles = StyleSheet.create({});

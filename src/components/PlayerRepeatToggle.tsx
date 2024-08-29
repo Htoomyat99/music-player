@@ -1,10 +1,9 @@
-import { View, Text, StyleSheet } from "react-native";
+import { colors } from "@/constants/tokens";
+import { useTrackPlayerRepeatMode } from "@/hooks/useTrackPlayerRepeatMode";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React, { ComponentProps } from "react";
 import { RepeatMode } from "react-native-track-player";
 import { match } from "ts-pattern";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { colors } from "@/constants/tokens";
-import { useTrackPlayerRepeatMode } from "@/hooks/useTrackPlayerRepeatMode";
 
 const repeatOrder = [
   RepeatMode.Off,
@@ -44,5 +43,3 @@ const PlayerRepeatToggle = ({ ...iconProps }: IconProps) => {
 };
 
 export default PlayerRepeatToggle;
-
-const styles = StyleSheet.create({});
