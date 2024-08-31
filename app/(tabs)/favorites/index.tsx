@@ -1,7 +1,7 @@
-import library from "@/assets/data/library.json";
 import { TrackList } from "@/components/TrackList";
 import { colors, screenPadding } from "@/constants/tokens";
 import { trackTitleFilter } from "@/helpers/filter";
+import { generateTracksListId } from "@/helpers/miscellaneous";
 import { useNavigationSearch } from "@/hooks/useNavigationSearch";
 import { useFavorite } from "@/store/library";
 import { defaultStyles } from "@/styles";
@@ -30,7 +30,11 @@ const FavoriteScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={{ paddingHorizontal: screenPadding.horizontal }}
       >
-        <TrackList tracks={filterFavoritesTracks} scrollEnabled={false} />
+        <TrackList
+          id={generateTracksListId("favorites", search)}
+          tracks={filterFavoritesTracks}
+          scrollEnabled={false}
+        />
       </ScrollView>
     </View>
   );

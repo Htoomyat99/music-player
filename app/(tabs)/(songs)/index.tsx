@@ -1,12 +1,12 @@
 import { TrackList } from "@/components/TrackList";
 import { colors, screenPadding } from "@/constants/tokens";
+import { trackTitleFilter } from "@/helpers/filter";
+import { generateTracksListId } from "@/helpers/miscellaneous";
 import { useNavigationSearch } from "@/hooks/useNavigationSearch";
+import { useTracks } from "@/store/library";
 import { defaultStyles } from "@/styles";
 import { useMemo } from "react";
 import { ScrollView, View } from "react-native";
-import library from "@/assets/data/library.json";
-import { trackTitleFilter } from "@/helpers/filter";
-import { useTracks } from "@/store/library";
 
 const SongScreen = () => {
   const search = useNavigationSearch({
@@ -30,7 +30,11 @@ const SongScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={{ paddingHorizontal: screenPadding.horizontal }}
       >
-        <TrackList tracks={filterTracks} scrollEnabled={false} />
+        <TrackList
+          id={generateTracksListId("songs", search)}
+          tracks={filterTracks}
+          scrollEnabled={false}
+        />
       </ScrollView>
     </View>
   );

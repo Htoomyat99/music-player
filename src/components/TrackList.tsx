@@ -1,13 +1,15 @@
 import { unknownTrackImageUri } from "@/constants/images";
 import { utilsStyles } from "@/styles";
-import React from "react";
+import React, { useRef } from "react";
 import { FlatList, FlatListProps, Text, View } from "react-native";
 import FastImage from "react-native-fast-image";
 import TrackPlayer, { Track } from "react-native-track-player";
 import { TrackListItem } from "./TrackListItem";
+import { useQueue } from "@/store/queue";
 
 export interface TrackListProps extends Partial<FlatListProps<Track>> {
   tracks: Track[];
+  id: string;
 }
 
 const ItemDivider = () => (
@@ -32,10 +34,41 @@ const ListEmptyComponent = () => {
   );
 };
 
-export const TrackList = ({ tracks, ...flatListProps }: TrackListProps) => {
-  const handleTrackSelect = async (track: Track) => {
-    await TrackPlayer.load(track);
-    await TrackPlayer.play();
+export const TrackList = ({ tracks, id, ...flatListProps }: TrackListProps) => {
+  const queueOffset = useRef(0);
+  const { activeQueueId, setActiveQueueId } = useQueue();
+
+  const handleTrackSelect = async (selectedTrack: Track) => {
+    const trackIndex = tracks.findIndex(
+      (track) => track.url === selectedTrack.url
+    );
+
+    if (trackIndex === -1) return;
+
+    const isChangingQueue = activeQueueId !== id;
+
+    if (isChangingQueue) {
+      const beforeTrack = tracks.slice(0, trackIndex);
+      const afterTrack = tracks.slice(trackIndex + 1);
+
+      // construct the queue
+      await TrackPlayer.reset();
+      await TrackPlayer.add(selectedTrack);
+      await TrackPlayer.add(afterTrack);
+      await TrackPlayer.add(beforeTrack);
+
+      await TrackPlayer.play();
+      queueOffset.current = trackIndex;
+      setActiveQueueId(id);
+    } else {
+      const nextTrackIndex =
+        trackIndex - queueOffset.current < 0
+          ? tracks.length + trackIndex - queueOffset.current
+          : trackIndex - queueOffset.current;
+
+      await TrackPlayer.skip(nextTrackIndex);
+      TrackPlayer.play();
+    }
   };
 
   return (
