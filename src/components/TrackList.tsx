@@ -6,6 +6,7 @@ import FastImage from "react-native-fast-image";
 import TrackPlayer, { Track } from "react-native-track-player";
 import { TrackListItem } from "./TrackListItem";
 import { useQueue } from "@/store/queue";
+import { QueueControl } from "./QueueControl";
 
 export interface TrackListProps extends Partial<FlatListProps<Track>> {
   tracks: Track[];
@@ -79,6 +80,9 @@ export const TrackList = ({ tracks, id, ...flatListProps }: TrackListProps) => {
         <TrackListItem track={track} onTrackSelect={handleTrackSelect} />
       )}
       ItemSeparatorComponent={ItemDivider}
+      ListHeaderComponent={
+        <QueueControl tracks={tracks} style={{ paddingBottom: 20 }} />
+      }
       ListFooterComponent={ItemDivider}
       ListEmptyComponent={ListEmptyComponent}
       {...flatListProps}
