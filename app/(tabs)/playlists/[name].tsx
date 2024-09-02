@@ -1,10 +1,10 @@
-import { View, Text, ScrollView } from "react-native";
-import React from "react";
-import { Redirect, useLocalSearchParams } from "expo-router";
-import { usePlaylists } from "@/store/library";
-import { screenPadding } from "@/constants/tokens";
-import { defaultStyles } from "@/styles";
 import PlaylistTracksList from "@/components/PlaylistTracksList";
+import { screenPadding } from "@/constants/tokens";
+import { usePlaylists } from "@/store/library";
+import { defaultStyles } from "@/styles";
+import { Redirect, useLocalSearchParams } from "expo-router";
+import React from "react";
+import { ScrollView, View } from "react-native";
 
 const PlaylistScreen = () => {
   const { name: playlistName } = useLocalSearchParams<{ name: string }>();

@@ -18,7 +18,7 @@ const PlayListScreen = () => {
     },
   });
 
-  const { playlists, addToPlaylist } = usePlaylists();
+  const { playlists } = usePlaylists();
 
   const filteredPlaylists = useMemo(() => {
     if (!search) return playlists;

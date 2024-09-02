@@ -1,6 +1,6 @@
 import PlaylistListItem from "@/components/PlaylistListItem";
 import { unknownTrackImageUri } from "@/constants/images";
-import { colors, screenPadding } from "@/constants/tokens";
+import { colors } from "@/constants/tokens";
 import { playlistNameFilter } from "@/helpers/filter";
 import { PlayList } from "@/helpers/type";
 import { useNavigationSearch } from "@/hooks/useNavigationSearch";
@@ -28,7 +28,7 @@ const PlaylistsList = ({
 
   const filterPlaylists = useMemo(() => {
     return playlists.filter(playlistNameFilter(search));
-  }, []);
+  }, [playlists, search]);
 
   const ItemDivider = () => {
     return <View style={{ ...utilsStyles.itemSeparator, ...styles.divider }} />;
