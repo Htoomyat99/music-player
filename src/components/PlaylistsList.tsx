@@ -1,13 +1,13 @@
-import { View, Text, FlatListProps, FlatList, StyleSheet } from "react-native";
-import React, { useMemo } from "react";
-import { PlayList } from "@/helpers/type";
-import { useNavigationSearch } from "@/hooks/useNavigationSearch";
+import PlaylistListItem from "@/components/PlaylistListItem";
+import { unknownTrackImageUri } from "@/constants/images";
 import { colors, screenPadding } from "@/constants/tokens";
 import { playlistNameFilter } from "@/helpers/filter";
+import { PlayList } from "@/helpers/type";
+import { useNavigationSearch } from "@/hooks/useNavigationSearch";
 import { utilsStyles } from "@/styles";
+import React, { useMemo } from "react";
+import { FlatList, FlatListProps, StyleSheet, Text, View } from "react-native";
 import FastImage from "react-native-fast-image";
-import { unknownTrackImageUri } from "@/constants/images";
-import PlaylistListItem from "@/components/PlaylistListItem";
 
 type playlistsListProp = {
   playlists: PlayList[];
@@ -52,7 +52,6 @@ const PlaylistsList = ({
 
   return (
     <FlatList
-      contentContainerStyle={{ paddingHorizontal: screenPadding.horizontal }}
       data={filterPlaylists}
       ItemSeparatorComponent={ItemDivider}
       ListFooterComponent={ItemDivider}
