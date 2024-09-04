@@ -2,6 +2,7 @@ import { TrackList } from "@/components/TrackList";
 import { colors, screenPadding } from "@/constants/tokens";
 import { trackTitleFilter } from "@/helpers/filter";
 import { generateTracksListId } from "@/helpers/miscellaneous";
+import { useFetchData } from "@/hooks/useFetchData";
 import { useNavigationSearch } from "@/hooks/useNavigationSearch";
 import { useTracks } from "@/store/library";
 import { defaultStyles } from "@/styles";
@@ -15,6 +16,8 @@ const SongScreen = () => {
       textColor: colors.text,
     },
   });
+
+  useFetchData();
 
   const tracks = useTracks();
 
