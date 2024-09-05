@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   trackTitle: {
     ...defaultStyles.text,
     fontSize: 18,
-    fontWeight: 600,
+    fontWeight: "600",
     paddingLeft: 10,
   },
   trackControlContainer: {

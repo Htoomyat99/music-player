@@ -78,6 +78,6 @@ const styles = StyleSheet.create({
     marginTop: 22,
     textAlign: "center",
     fontSize: fontSize.lg,
-    fontWeight: 800,
+    fontWeight: "800",
   },
 });

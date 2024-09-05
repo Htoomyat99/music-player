@@ -18,7 +18,7 @@ const TabsNavigation = () => {
           tabBarActiveTintColor: colors.primary,
           tabBarLabelStyle: {
             fontSize: fontSize.xs,
-            fontWeight: 500,
+            fontWeight: "500",
           },
           headerShown: false,
           tabBarStyle: {

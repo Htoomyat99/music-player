@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
     opacity: 0.75,
     fontSize: fontSize.xs,
     letterSpacing: 0.7,
-    fontWeight: 500,
+    fontWeight: "500",
   },
 });

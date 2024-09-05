@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   playlistNameText: {
     ...defaultStyles.text,
     fontSize: 17,
-    fontWeight: 600,
+    fontWeight: "600",
     maxWidth: "80%",
   },
 });

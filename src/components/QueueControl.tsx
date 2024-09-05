@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   buttonText: {
     ...defaultStyles.text,
     color: colors.primary,
-    fontWeight: 600,
+    fontWeight: "600",
     fontSize: 18,
     textAlign: "center",
   },

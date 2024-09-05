@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   trackTitleText: {
     ...defaultStyles.text,
     fontSize: 22,
-    fontWeight: 700,
+    fontWeight: "700",
   },
   trackArtistText: {
     ...defaultStyles.text,
