@@ -8,7 +8,8 @@ import {
 } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
+import { verticalScale, scale, moderateScale } from "react-native-size-matters";
 
 const TabsNavigation = () => {
   return (
@@ -23,20 +24,25 @@ const TabsNavigation = () => {
           headerShown: false,
           tabBarStyle: {
             position: "absolute",
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
+            borderTopLeftRadius: moderateScale(20),
+            borderTopRightRadius: moderateScale(20),
             borderTopWidth: 0,
-            paddingTop: 8,
+            paddingTop: moderateScale(8),
+            paddingBottom:
+              Platform.OS === "android" ? moderateScale(10) : moderateScale(25),
+            height:
+              Platform.OS === "ios" ? verticalScale(65) : verticalScale(55),
           },
           tabBarBackground: () => (
             <BlurView
+              experimentalBlurMethod="dimezisBlurView"
               intensity={80}
               tint="dark"
               style={{
                 ...StyleSheet.absoluteFillObject,
                 overflow: "hidden",
-                borderTopLeftRadius: 20,
-                borderTopRightRadius: 20,
+                borderTopLeftRadius: moderateScale(20),
+                borderTopRightRadius: moderateScale(20),
               }}
             />
           ),
