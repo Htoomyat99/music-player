@@ -23,8 +23,6 @@ const PlayerScreen = () => {
     activeTrack?.artwork ?? unknownTrackImageUri
   );
 
-  console.log(imageColor);
-
   const { isFavorite, toggleFavorites } = useTrackPlayerPlaylist();
 
   if (!activeTrack)
@@ -37,7 +35,7 @@ const PlayerScreen = () => {
   const gradientColorArr = imageColor
     ? imageColor?.platform === "ios"
       ? [imageColor.background, imageColor.primary]
-      : [imageColor?.lightVibrant, imageColor?.vibrant]
+      : [imageColor.darkVibrant, imageColor?.dominant]
     : [colors.text];
 
   return (

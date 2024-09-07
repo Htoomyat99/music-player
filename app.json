@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "music-player",
+    "name": "Music Player",
     "slug": "music-player",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,9 +16,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.htoomyat992.musicplayer",
       "infoPlist": {
-        "UIBackgroundModes": [
-          "audio"
-        ]
+        "UIBackgroundModes": ["audio"]
       }
     },
     "android": {
@@ -33,10 +31,7 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      "expo-font"
-    ],
+    "plugins": ["expo-router", "expo-font"],
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true

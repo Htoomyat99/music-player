@@ -44,7 +44,7 @@ if (getRNMinorVersion() >= 75) {
   }
 }
 
-rootProject.name = 'music-player'
+rootProject.name = 'Music Player'
 
 dependencyResolutionManagement {
   versionCatalogs {
