@@ -1,50 +1,78 @@
-# Welcome to your Expo app 👋
+# 🎵 Music Player App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This **Music Player App** is designed to provide an intuitive and enjoyable music listening experience. Users can explore a list of songs, view favorites, playlists, and artists, see song details, and enjoy seamless music playback, even in the background.
 
-## Get started
+🎧 **Built with React Native** and enhanced with animations and blur effects for a smooth and responsive user experience!
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- 🎶 **Song List:** Explore a curated list of songs.
+- ❤️ **Favorites:** Easily mark and manage your favorite tracks.
+- 🎛️ **Playlists & Artists:** View your playlists and artists.
+- 📝 **Song Details:** Get more information about each track.
+- ▶️ **Music Playback:** Play songs with background music support.
 
-2. Start the app
+## 📸 Screenshots
 
-   ```bash
-    npx expo start
-   ```
+<p align="center">
+  <img src="./assets/images/preview1.png" alt="Preview 1" width="180"/>
+  <img src="./assets/images/preview2.png" alt="Preview 2" width="180"/>
+  <img src="./assets/images/preview3.png" alt="Preview 3" width="180"/>
+  <img src="./assets/images/preview4.png" alt="Preview 4" width="180"/>
+</p>
 
-In the output, you'll find options to open the app in a
+## 🛠️ Tech Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **[Expo Router](https://expo.github.io/router/docs/):** 🧭 Navigation for managing routes.
+- **[Expo Blur](https://docs.expo.dev/versions/latest/sdk/blur/):** 🌫️ Beautiful blur effects.
+- **[Expo Linear Gradient](https://docs.expo.dev/versions/latest/sdk/linear-gradient/):** 🌈 Smooth linear gradients for UI enhancements.
+- **[React Native Image Color](https://github.com/osamaq/react-native-image-colors):** 🎨 Extract colors from images.
+- **[React Native Fast Image](https://github.com/DylanVann/react-native-fast-image):** 🚀 Optimized image loading.
+- **[React Native Loader Kit](https://github.com/niyaztorabipour/react-native-loader-kit):** ⏳ Elegant loading animations.
+- **[React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/):** 🌀 For smooth and performant animations.
+- **[React Native Size Matters](https://github.com/nirsky/react-native-size-matters):** 📐 Ensures responsive design across all devices.
+- **[Zustand](https://zustand-demo.pmnd.rs/):** 🐻 Lightweight state management.
+- **[React Native Track Player](https://github.com/DoubleSymmetry/react-native-track-player):** 🎧 Feature-rich music playback with background support.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📦 Setup and Installation
 
-## Get a fresh project
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Htoomyat99/music-player
+    ```
 
-When you're ready, run:
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-```bash
-npm run reset-project
-```
+3. For iOS, run the app:
+    ```bash
+    npx expo run:ios
+    ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+4. For Android, run the app:
+    ```bash
+    npx expo run:android
+    ```
 
-## Learn more
+## 🎯 Functionality
 
-To learn more about developing your project with Expo, look at the following resources:
+- **Song List:** Browse the song catalog.
+- **Favorites:** Manage your favorite tracks.
+- **Playlists & Artists:** Organize and explore music by playlists and artists.
+- **Song Detail:** See detailed info for each song.
+- **Background Music:** Enjoy uninterrupted playback in the background.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 🔗 Inspiration
 
-## Join the community
+This project is inspired by the following tutorial:  
+[Music App Tutorial on YouTube](https://www.youtube.com/watch?v=9CElrkFwiBU&t=15312s)
 
-Join our community of developers creating universal apps.
+## 📝 License
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is licensed under the MIT License.
+
+---
+
+🎵 **Music that Moves You!** 🎵
