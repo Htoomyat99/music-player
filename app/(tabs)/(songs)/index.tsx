@@ -5,6 +5,7 @@ import { generateTracksListId } from "@/helpers/miscellaneous";
 import { useNavigationSearch } from "@/hooks/useNavigationSearch";
 import { useTracks } from "@/store/library";
 import { defaultStyles } from "@/styles";
+import { StatusBar } from "expo-status-bar";
 import { useMemo } from "react";
 import { ScrollView, View } from "react-native";
 
@@ -26,6 +27,8 @@ const SongScreen = () => {
 
   return (
     <View style={defaultStyles.container}>
+      <StatusBar style="light" />
+
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={{ paddingHorizontal: screenPadding.horizontal }}

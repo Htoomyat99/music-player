@@ -9,7 +9,7 @@ import {
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
 import { Platform, StyleSheet } from "react-native";
-import { verticalScale, scale, moderateScale } from "react-native-size-matters";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 
 const TabsNavigation = () => {
   return (

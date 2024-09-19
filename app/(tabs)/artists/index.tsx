@@ -15,6 +15,7 @@ import { artistNameFilter } from "@/helpers/filter";
 import FastImage from "react-native-fast-image";
 import { unknownArtistImageUri } from "@/constants/images";
 import { Link } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 const ArtistScreen = () => {
   const search = useNavigationSearch({
@@ -70,6 +71,8 @@ const ArtistScreen = () => {
 
   return (
     <View style={defaultStyles.container}>
+      <StatusBar style="light" />
+
       <ScrollView
         style={{ paddingHorizontal: screenPadding.horizontal }}
         contentInsetAdjustmentBehavior="automatic"
